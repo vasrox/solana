@@ -1,0 +1,49 @@
+[Unit]
+Description=Solana Validator
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+LimitNOFILE=1048576
+
+Environment="SOLANA_METRICS_CONFIG='host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea'"
+Environment="RUST_LOG=solana=info"
+Environment="ENTRYPOINT=35.203.170.30:8001"
+Environment="TRUSTED_VALIDATOR1=5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on"
+Environment="TRUSTED_VALIDATOR2=ta1Uvfb7W5BRPrdGnhP9RmeCGKzBySGM1hTE4rBRy6T"
+Environment="TRUSTED_VALIDATOR3=Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN"
+Environment="TRUSTED_VALIDATOR4=9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv"
+Environment="EXPECTED_GENESIS_HASH=4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
+Environment="EXPECTED_SHRED_VERSION=9326"
+
+ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
+  --entrypoint ${ENTRYPOINT} \
+  --identity /root/solana/validator-keypair.json \
+  --vote-account /root/solana/vote-account-keypair.json \
+  --ledger /root/solana/validator-ledger \
+  --trusted-validator ${TRUSTED_VALIDATOR1} \
+  --trusted-validator ${TRUSTED_VALIDATOR2} \
+  --trusted-validator ${TRUSTED_VALIDATOR3} \
+  --trusted-validator ${TRUSTED_VALIDATOR4} \
+  --dynamic-port-range 8001-8020 \
+  --gossip-port 8001 \
+  --rpc-port 8899 \
+  --no-port-check \
+  --private-rpc \
+  --no-untrusted-rpc \
+  --rpc-bind-address 127.0.0.1 \
+  --snapshot-interval-slots 100 \
+  --limit-ledger-size 50000000 \
+  --wal-recovery-mode skip_any_corrupted_record \
+  --skip-poh-verify \
+  --no-check-vote-account \
+  --log - \
+  --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
+  --expected-shred-version ${EXPECTED_SHRED_VERSION}
+
+[Install]
+WantedBy=multi-user.target
