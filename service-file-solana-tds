@@ -45,6 +45,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
   --expected-shred-version ${EXPECTED_SHRED_VERSION} \
   --trusted-validator ${TRUSTED_VALIDATOR1} \
+  --trusted-validator ${TRUSTED_VALIDATOR5} \
   --expected-bank-hash ${EXPECTED_BANK_HASH} \
   --accounts-db-caching-enabled \
   --wait-for-supermajority ${SUPERMAJORITY}
