@@ -18,9 +18,9 @@ Environment="SOLANA_METRICS_CONFIG='host=https://metrics.solana.com:8086,db=tds,
 Environment="RUST_LOG=solana=info"
 Environment="ENTRYPOINT=entrypoint.testnet.solana.com:8001"
 Environment="EXPECTED_GENESIS_HASH=4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
-Environment="EXPECTED_BANK_HASH=D82pLmXX4TJkVpuiSob74XBFzx9axcGrYrMyReBieXhX"
-Environment="SUPERMAJORITY=58116391"
-Environment="EXPECTED_SHRED_VERSION=755"
+Environment="EXPECTED_BANK_HASH=Ah4UKUDGb8KT99zY9qA5dtkKCqAkLqu3KX4cqS2i5piM"
+Environment="SUPERMAJORITY=70430039"
+Environment="EXPECTED_SHRED_VERSION=44943"
 Environment="HARD_FORK=50438183"
 Environment="TRUSTED_VALIDATOR1=5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on"
 Environment="TRUSTED_VALIDATOR2=Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN"
@@ -48,9 +48,9 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --trusted-validator ${TRUSTED_VALIDATOR5} \
   --expected-bank-hash ${EXPECTED_BANK_HASH} \
   --accounts-db-caching-enabled \
-  --wait-for-supermajority ${SUPERMAJORITY}
-#  --no-snapshot-fetch \
-#  --no-genesis-fetch
+  --wait-for-supermajority ${SUPERMAJORITY} \
+  --no-snapshot-fetch \
+  --no-genesis-fetch
 
 [Install]
 WantedBy=multi-user.target
