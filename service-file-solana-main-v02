@@ -1,0 +1,59 @@
+[Unit]
+Description=Solana Validator
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+LimitNOFILE=1024000
+Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password""
+Environment="EXPECTED_SHRED_VERSION=13490"
+Environment="EXPECTED_BANK_HASH=Fi4p8z3AkfsuGXZzQ4TD28N8QDNSWC7ccqAqTs2GPdPu"
+Environment="EXPECTED_GENESIS_HASH=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
+Environment="WAIT_FOR_SUPERMAJORITY=53180900"
+Environment="RUST_LOG=solana=info"
+Environment="ENTRYPOINT=mainnet-beta.solana.com:8001"
+
+ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
+  --dynamic-port-range 8001-8020 \
+  --entrypoint entrypoint.mainnet-beta.solana.com:8001 \
+  --entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
+  --entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
+  --entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
+  --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
+  --identity /root/solana/validator-keypair.json \
+  --vote-account /root/solana/vote-account-keypair.json \
+  --trusted-validator ba1cUvbuGe7k2Um2YKmRnR7ZAy3sK9mQKJkMCGVhcov \
+  --trusted-validator ba2eZEU27TqR1MB9WUPJ2F7dcTrNsgdx38tBg53GexZ \
+  --trusted-validator ba3zMkMp87HZg27Z7EDEkxE48zcKgJ59weFYtrKadY7 \
+  --trusted-validator ba4MuwPdsx6DKXY6vVCbheAi5UTiMgmBefCGbVhfeQY \
+  --trusted-validator ba5rfuZ37gxhrLcsgA5fzCg8BvSQcTERPqY14Qffa3J \
+  --trusted-validator ba6wkJVhenDL2HpH8bYLVEMKwCgo21cJm9AmPEEVMFi \
+  --trusted-validator F77qhZH7Net35Hz2EVUoqyUQuSMdSwxnLRwZZsAcN9X6 \
+  --expected-genesis-hash $EXPECTED_GENESIS_HASH \
+  --gossip-port 8001 \
+  --rpc-port 8899 \
+  --log - \
+  --private-rpc \
+  --no-untrusted-rpc \
+  --rpc-bind-address 127.0.0.1 \
+  --ledger /root/solana/validator-ledger \
+  --limit-ledger-size 50000000 \
+  --wal-recovery-mode skip_any_corrupted_record \
+  --maximum-local-snapshot-age 5000 \
+  --snapshot-interval-slots 2000 \
+  --no-port-check \
+  --no-poh-speed-test \
+  --skip-poh-verify  \
+  --no-check-vote-account \
+  --wait-for-supermajority 96542804 \
+  --no-snapshot-fetch \
+  --no-genesis-fetch \
+  --expected-bank-hash 5x6cLLsvsEbgbQxQNPoT1LvbTfYrx22kpXyzRxLKAMN3 \
+  --expected-shred-version 6012
+
+[Install]
+WantedBy=multi-user.target
