@@ -51,7 +51,10 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --no-check-vote-account \
   --wait-for-supermajority 96542804 \
   --expected-bank-hash 5x6cLLsvsEbgbQxQNPoT1LvbTfYrx22kpXyzRxLKAMN3 \
-  --expected-shred-version 6012
+  --no-snapshot-fetch \
+  --no-genesis-fetch \
+  --expected-shred-version 8573 \
+  --hard-fork 96542805
 
 [Install]
 WantedBy=multi-user.target
