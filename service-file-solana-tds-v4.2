@@ -43,7 +43,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --snapshot-interval-slots 2500 \
   --entrypoint ${ENTRYPOINT} \
   --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
-  --no-snapshot-fetch \
   --known-validator ${TRUSTED_VALIDATOR1} \
   --known-validator ${TRUSTED_VALIDATOR2} \
   --known-validator ${TRUSTED_VALIDATOR3} \
