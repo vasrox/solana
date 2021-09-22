@@ -47,7 +47,18 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --known-validator ${TRUSTED_VALIDATOR1} \
   --known-validator ${TRUSTED_VALIDATOR2} \
   --known-validator ${TRUSTED_VALIDATOR3} \
-  --known-validator ${TRUSTED_VALIDATOR5} 
+  --known-validator ${TRUSTED_VALIDATOR5} \
+  --wait-for-supermajority 95038710 \
+  --no-snapshot-fetch \
+  --no-genesis-fetch \
+  --expected-bank-hash E3MJucWkWkugqJ8ewHAkDWuCN6uDxEychwjFFCwJ16ic \
+  --expected-shred-version 50850 \
+  --known-validator 3K8BYGTPD9AxqYQDPdU8PPy6AfiSwf4hDmFy1xXGB8Ns \
+  --known-validator 5dB4Ygb8Sf3Sssdxxrpbb4NFX9bMrYnieiz11Vr5xJkJ \
+  --known-validator 7TcmJn12spW6KQJp4fvvo45d1hpxS8EnLjKMxihtNZ1V \
+  --known-validator 4jhyvbBHbsRDF6och7pDQ7ahYTUr7wNkAYJTLLuMUtku \
+  --known-validator 4rVaXrd7BLSFZMSm4Lq63nxkVyezGxsQVpUhc9LqbxVk \
+  --known-validator 82k4RGZAJxtXvW3hzgmHB2q4oDHzgwMR2cGXup324gsJ
 
 [Install]
 WantedBy=multi-user.target
