@@ -50,8 +50,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --no-port-check \
   --no-poh-speed-test \
   --skip-poh-verify  \
-  --no-snapshot-fetch \
-  --no-genesis-fetch \
   --no-check-vote-account
 
 [Install]
