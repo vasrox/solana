@@ -1,0 +1,51 @@
+#=====================================================================================================================================
+# TdS service file 21/11/02 recover edition
+#=====================================================================================================================================
+[Unit]
+Description=Solana TdS node
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+LimitNOFILE=2048000
+
+Environment="SOLANA_METRICS_CONFIG='host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea'"
+Environment="RUST_LOG=solana=info"
+Environment="ENTRYPOINT=entrypoint.testnet.solana.com:8001"
+Environment="EXPECTED_GENESIS_HASH=4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
+
+ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
+  --ledger /root/solana/validator-ledger \
+  --dynamic-port-range 8001-8020 \
+  --identity /root/solana/validator-keypair.json \
+  --vote-account /root/solana/vote-account-keypair.json \
+  --gossip-port 8001 \
+  --rpc-port 8899 \
+  --log - \
+  --private-rpc \
+  --no-untrusted-rpc \
+  --rpc-bind-address 127.0.0.1 \
+  --limit-ledger-size 50000000 \
+  --snapshot-interval-slots 2500 \
+  --entrypoint ${ENTRYPOINT} \
+  --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
+  --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
+  --known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \
+  --known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
+  --known-validator 7XSY3MrYnK8vq693Rju17bbPkCN3Z7KvvfvJx4kdrsSY \
+  --wait-for-supermajority 101345231 \
+  --no-snapshot-fetch \
+  --no-genesis-fetch \
+  --expected-bank-hash 4G7KhkE5rBN4ne7GNk4JN4mz72sNxKaHnAS3ypy5rcpW \
+  --expected-shred-version 51836 \
+  --known-validator 5Rjq51GbTVY871gHZsLSknG7a2rqkukBxuanAJYDLVMY \
+  --known-validator 5dB4Ygb8Sf3Sssdxxrpbb4NFX9bMrYnieiz11Vr5xJkJ \
+  --known-validator Dg5E8ktH4GWfKL1vuVTdqZJEkAEgtV8LqmSXyLJuZ3q1 \
+  --known-validator GLKsDBjWBaXHkyMihjpU5ZdKyKWtUpJyE4W7PjEFSEHh
+
+[Install]
+WantedBy=multi-user.target
