@@ -1,3 +1,4 @@
+### TdS service file 21/11/18 recover edition with ledger removal first
 [Unit]
 Description=Solana_TdS
 After=network.target
@@ -25,7 +26,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --private-rpc \
   --limit-ledger-size 50000000 \
   --snapshot-interval-slots 2500 \
-  --limit-ledger-size 50000000 \
   --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
   --known-validator GcibmF4zgb6Vr4bpZZYHGDPZNWiLnBDUHdpJZTsTDvwe \
   --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
