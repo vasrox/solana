@@ -2,9 +2,10 @@
 # TdS service file 21/11/02 recover edition
 #=====================================================================================================================================
 [Unit]
-Description=Solana TdS node
+Description=Solana_TdS
 After=network.target
 StartLimitIntervalSec=0
+After=solana-sys-tuner.service
 
 [Service]
 Type=simple
@@ -13,58 +14,37 @@ RestartSec=1
 User=root
 LimitNOFILE=2048000
 
-Environment="SOLANA_METRICS_CONFIG='host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea'"
+Environment="SOLANA_METRICS_CONFIG='host=https://metrics.solana.com:8086,db=tds,u=test>
 Environment="RUST_LOG=solana=info"
-Environment="ENTRYPOINT=entrypoint.testnet.solana.com:8001"
 Environment="EXPECTED_GENESIS_HASH=4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
-Environment="TRUSTED_VALIDATOR1=5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on"
-Environment="TRUSTED_VALIDATOR2=Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN"
-Environment="TRUSTED_VALIDATOR3=9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv"
-Environment="TRUSTED_VALIDATOR4=ta1Uvfb7W5BRPrdGnhP9RmeCGKzBySGM1hTE4rBRy6T"
-Environment="TRUSTED_VALIDATOR5=7XSY3MrYnK8vq693Rju17bbPkCN3Z7KvvfvJx4kdrsSY"
-
 
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
   --ledger /root/solana/validator-ledger \
   --dynamic-port-range 8001-8020 \
   --identity /root/solana/validator-keypair.json \
   --vote-account /root/solana/vote-account-keypair.json \
-  --gossip-port 8001 \
   --rpc-port 8899 \
-  --log - \
-  --private-rpc \
-  --no-untrusted-rpc \
   --rpc-bind-address 127.0.0.1 \
+  --private-rpc \
   --limit-ledger-size 50000000 \
-  --snapshot-interval-slots 2500 \
-  --entrypoint ${ENTRYPOINT} \
-  --entrypoint 5.9.35.85:8001 \
-  --entrypoint 178.170.42.36:8000 \ 
-  --wait-for-supermajority 103858866 \
-  --expected-bank-hash 7haWD8r1tvRaK1gw95eVedXKJTVD43PXnoBXyjerFbav \
-  --expected-shred-version 40424 \
+  --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
   --known-validator GcibmF4zgb6Vr4bpZZYHGDPZNWiLnBDUHdpJZTsTDvwe \
   --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
   --known-validator 3iPu9xQ3mCFmqME9ZajuZbFHjwagAxhgfTxnc4pWbEBC \
   --known-validator 8SRKNfvMerfA1BdU79CAwU4wNfjnDvFrBo3o5f5TS4uv \
   --known-validator FCnsZL8d45gC5aVsmheV3zs533DfM2jRk1vNnDgLNkfr \
-  --known-validator 8VNj7K6ssFcUogRfT6miUzz8HTKu1nX2n8MYr5z49CXb \  
-  --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
-  --known-validator ${TRUSTED_VALIDATOR1} \
-  --known-validator ${TRUSTED_VALIDATOR2} \
-  --known-validator ${TRUSTED_VALIDATOR3} \
-  --known-validator ${TRUSTED_VALIDATOR5} \
+  --known-validator 8VNj7K6ssFcUogRfT6miUzz8HTKu1nX2n8MYr5z49CXb \
+  --entrypoint 5.9.35.85:8001 \
+  --entrypoint 178.170.42.36:8000 \
+  --wait-for-supermajority 103858866 \
   --no-snapshot-fetch \
   --no-genesis-fetch \
-  --known-validator F1TuusSghAobmbGAgNrdxRS9nBjwT6J1yyALUvpEA1is \
-  --known-validator 9YVpEeZf8uBoUtzCFC6SSFDDqPt16uKFubNhLvGxeUDy \
-  --known-validator GmgV3mnVohRz99rsnMNWNFqzop4oSgNv6Hx1kE7PKvYU \
-  --known-validator 3K8BYGTPD9AxqYQDPdU8PPy6AfiSwf4hDmFy1xXGB8Ns \
-  --known-validator 5dB4Ygb8Sf3Sssdxxrpbb4NFX9bMrYnieiz11Vr5xJkJ \
-  --known-validator 7TcmJn12spW6KQJp4fvvo45d1hpxS8EnLjKMxihtNZ1V \
-  --known-validator 4jhyvbBHbsRDF6och7pDQ7ahYTUr7wNkAYJTLLuMUtku \
-  --known-validator 4rVaXrd7BLSFZMSm4Lq63nxkVyezGxsQVpUhc9LqbxVk \
-  --known-validator 82k4RGZAJxtXvW3hzgmHB2q4oDHzgwMR2cGXup324gsJ
+  --expected-bank-hash 7haWD8r1tvRaK1gw95eVedXKJTVD43PXnoBXyjerFbav \
+  --expected-shred-version 40424 \
+  --accounts /root/solana/validator-ledger/accounts \
+  --no-poh-speed-test \
+  --log -
+
 
 [Install]
 WantedBy=multi-user.target
