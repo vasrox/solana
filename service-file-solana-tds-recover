@@ -1,5 +1,5 @@
 #=====================================================================================================================================
-# TdS service file 21/11/18 recover edition
+# TdS service file 22/01/02 recover edition
 #=====================================================================================================================================
 [Unit]
 Description=Solana_TdS
@@ -29,31 +29,22 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --snapshot-interval-slots 2500 \
   --private-rpc \
   --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
-  --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
-  --known-validator 9YVpEeZf8uBoUtzCFC6SSFDDqPt16uKFubNhLvGxeUDy \
-  --known-validator 4958nAd4Gp1MZQEg97b7prdDKAgC5Ab3iQtNzAWyHqEV \
-  --known-validator 4jhyvbBHbsRDF6och7pDQ7ahYTUr7wNkAYJTLLuMUtku \
-  --known-validator D2ULkLgZk1d6RW3Wmd14vFNfkBgi6NMM8CDNsNuNXvfV \
-  --known-validator GcibmF4zgb6Vr4bpZZYHGDPZNWiLnBDUHdpJZTsTDvwe \
-  --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
-  --known-validator 3iPu9xQ3mCFmqME9ZajuZbFHjwagAxhgfTxnc4pWbEBC \
-  --known-validator 8SRKNfvMerfA1BdU79CAwU4wNfjnDvFrBo3o5f5TS4uv \
-  --known-validator FCnsZL8d45gC5aVsmheV3zs533DfM2jRk1vNnDgLNkfr \
-  --known-validator 8VNj7K6ssFcUogRfT6miUzz8HTKu1nX2n8MYr5z49CXb \
+  --wait-for-supermajority 110973418 \
+  --no-snapshot-fetch \
+  --no-genesis-fetch \
+  --expected-bank-hash WVDsuJJbhcdqH6vQrpZi5GYoPnMAaKw4THMtwes77DS \
+  --expected-shred-version 12339 \
   --entrypoint 5.9.35.85:8001 \
-  --entrypoint 84.213.68.99:8000 \
   --entrypoint entrypoint.testnet.solana.com:8001 \
   --entrypoint entrypoint2.testnet.solana.com:8001 \
   --entrypoint entrypoint3.testnet.solana.com:8001 \
-  --wait-for-supermajority 108469041 \
-  --no-snapshot-fetch \
-  --no-genesis-fetch \
-  --expected-bank-hash BEAKFSqMu6H7s6H88wRrpTerGpmoLgMjSWbbyUheLti1 \
-  --expected-shred-version 57124 \
+  --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
+  --known-validator 4z755TDizaUVyRRKw7y8DnTnnon8ksQYsZyU3feF6yFc \
+  --known-validator Bszp6hDL19ymPZ8efp9venQYb4ae2rRmEtVp4aG6k8nx \
+  --known-validator 8SRKNfvMerfA1BdU79CAwU4wNfjnDvFrBo3o5f5TS4uv \
   --accounts /root/solana/validator-ledger/accounts \
   --no-poh-speed-test \
   --log -
-
 
 [Install]
 WantedBy=multi-user.target
