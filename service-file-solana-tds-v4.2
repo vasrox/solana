@@ -46,7 +46,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --incremental-snapshot-interval-slots 1000 \
   --maximum-full-snapshots-to-retain 2 \
   --maximum-incremental-snapshots-to-retain 4 \
-  --maximum-local-snapshot-age 2000
+  --maximum-local-snapshot-age 2000 \
   --entrypoint 5.9.35.85:8001 \
   --entrypoint ${ENTRYPOINT} \
   --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
