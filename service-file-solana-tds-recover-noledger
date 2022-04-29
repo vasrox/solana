@@ -1,4 +1,6 @@
-### TdS service file 21/11/18 recover edition with ledger removal WTF
+#=====================================================================================================================================
+# TdS service file 29/04/22 recover edition
+#=====================================================================================================================================
 [Unit]
 Description=Solana_TdS
 After=network.target
@@ -12,7 +14,7 @@ RestartSec=1
 User=root
 LimitNOFILE=2048000
 
-Environment="SOLANA_METRICS_CONFIG='host=https://metrics.solana.com:8086,db=tds,u=test>
+Environment="SOLANA_METRICS_CONFIG='host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea'"
 Environment="RUST_LOG=solana=info"
 Environment="EXPECTED_GENESIS_HASH=4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
 
@@ -23,25 +25,30 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --vote-account /root/solana/vote-account-keypair.json \
   --rpc-port 8899 \
   --rpc-bind-address 127.0.0.1 \
-  --private-rpc \
   --limit-ledger-size 50000000 \
-  --snapshot-interval-slots 2500 \
+  --incremental-snapshots \
+  --full-snapshot-interval-slots 25000 \
+  --incremental-snapshot-interval-slots 1000 \
+  --maximum-full-snapshots-to-retain 2 \
+  --maximum-incremental-snapshots-to-retain 4 \
+  --maximum-local-snapshot-age 2000 \
+  --private-rpc \
   --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
-  --known-validator GcibmF4zgb6Vr4bpZZYHGDPZNWiLnBDUHdpJZTsTDvwe \
-  --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
-  --known-validator 3iPu9xQ3mCFmqME9ZajuZbFHjwagAxhgfTxnc4pWbEBC \
-  --known-validator 8SRKNfvMerfA1BdU79CAwU4wNfjnDvFrBo3o5f5TS4uv \
-  --known-validator FCnsZL8d45gC5aVsmheV3zs533DfM2jRk1vNnDgLNkfr \
-  --known-validator 8VNj7K6ssFcUogRfT6miUzz8HTKu1nX2n8MYr5z49CXb \
+  --wait-for-supermajority 130461975 \
+  --expected-bank-hash EpPRJFjY11rds94kDoivi86sEW3sUiSLbSaSZdRqRsBz \
+  --expected-shred-version 33548 \
   --entrypoint 5.9.35.85:8001 \
-  --entrypoint 178.170.42.36:8000 \
-  --wait-for-supermajority 103858866 \
-  --expected-bank-hash 7haWD8r1tvRaK1gw95eVedXKJTVD43PXnoBXyjerFbav \
-  --expected-shred-version 40424 \
+  --entrypoint entrypoint.testnet.solana.com:8001 \
+  --entrypoint entrypoint2.testnet.solana.com:8001 \
+  --entrypoint entrypoint3.testnet.solana.com:8001 \
+  --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
+  --known-validator 82k4RGZAJxtXvW3hzgmHB2q4oDHzgwMR2cGXup324gsJ \
+  --known-validator Bszp6hDL19ymPZ8efp9venQYb4ae2rRmEtVp4aG6k8nx \
+  --known-validator 376e8QLx9qSkjFn7mK2kp3wBwvziKuMqiB3iAbK5Payx \
+  --known-validator 8Apz17FY7vts5PUEP28apzqQBVgg6McbetFJqb45ew8F \
   --accounts /root/solana/validator-ledger/accounts \
   --no-poh-speed-test \
   --log -
-
 
 [Install]
 WantedBy=multi-user.target
