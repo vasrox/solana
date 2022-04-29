@@ -1,5 +1,5 @@
 #=====================================================================================================================================
-# TdS service file 22/01/02 recover edition
+# TdS service file 29/04/22 recover edition
 #=====================================================================================================================================
 [Unit]
 Description=Solana_TdS
@@ -26,22 +26,28 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --rpc-port 8899 \
   --rpc-bind-address 127.0.0.1 \
   --limit-ledger-size 50000000 \
-  --snapshot-interval-slots 2500 \
+  --incremental-snapshots \
+  --full-snapshot-interval-slots 25000 \
+  --incremental-snapshot-interval-slots 1000 \
+  --maximum-full-snapshots-to-retain 2 \
+  --maximum-incremental-snapshots-to-retain 4 \
+  --maximum-local-snapshot-age 2000 \
   --private-rpc \
   --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
-  --wait-for-supermajority 110973418 \
+  --wait-for-supermajority 130461975 \
   --no-snapshot-fetch \
   --no-genesis-fetch \
-  --expected-bank-hash WVDsuJJbhcdqH6vQrpZi5GYoPnMAaKw4THMtwes77DS \
-  --expected-shred-version 12339 \
+  --expected-bank-hash EpPRJFjY11rds94kDoivi86sEW3sUiSLbSaSZdRqRsBz \
+  --expected-shred-version 33548 \
   --entrypoint 5.9.35.85:8001 \
   --entrypoint entrypoint.testnet.solana.com:8001 \
   --entrypoint entrypoint2.testnet.solana.com:8001 \
   --entrypoint entrypoint3.testnet.solana.com:8001 \
   --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
-  --known-validator 4z755TDizaUVyRRKw7y8DnTnnon8ksQYsZyU3feF6yFc \
+  --known-validator 82k4RGZAJxtXvW3hzgmHB2q4oDHzgwMR2cGXup324gsJ \
   --known-validator Bszp6hDL19ymPZ8efp9venQYb4ae2rRmEtVp4aG6k8nx \
-  --known-validator 8SRKNfvMerfA1BdU79CAwU4wNfjnDvFrBo3o5f5TS4uv \
+  --known-validator 376e8QLx9qSkjFn7mK2kp3wBwvziKuMqiB3iAbK5Payx \
+  --known-validator 8Apz17FY7vts5PUEP28apzqQBVgg6McbetFJqb45ew8F \
   --accounts /root/solana/validator-ledger/accounts \
   --no-poh-speed-test \
   --log -
