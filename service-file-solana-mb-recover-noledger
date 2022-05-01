@@ -40,7 +40,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
   --known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
   --known-validator FSVdqBzx5D4UsqBLnvmH5dFx2dCm1pTPAbQWJ1PYzTJ2 \
-  --expected-genesis-hash $EXPECTED_GENESIS_HASH \
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
