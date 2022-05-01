@@ -10,7 +10,12 @@ RestartSec=1
 User=root
 LimitNOFILE=1024000
 Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password""
+Environment="EXPECTED_SHRED_VERSION=13490"
+Environment="EXPECTED_BANK_HASH=Fi4p8z3AkfsuGXZzQ4TD28N8QDNSWC7ccqAqTs2GPdPu"
+Environment="EXPECTED_GENESIS_HASH=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
+Environment="WAIT_FOR_SUPERMAJORITY=53180900"
 Environment="RUST_LOG=solana=info"
+Environment="ENTRYPOINT=mainnet-beta.solana.com:8001"
 
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
   --dynamic-port-range 8001-8020 \
@@ -21,6 +26,8 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
   --identity /root/solana/validator-keypair.json \
   --vote-account /root/solana/vote-account-keypair.json \
+  --wait-for-supermajority 131973970 \
+  --expected-shred-version 3247 \
   --expected-bank-hash DYR7fU4vw1Wk2FUwAgbnFFxwYE4ZcNx6W796ky2ayNHU \
   --known-validator Cogent51kHgGLHr7zpkpRjGYFXM57LgjHjDdqXd4ypdA \
   --known-validator 12ashmTiFStQ8RGUpi1BTCinJakVyDKWjRL6SWhnbxbT \
@@ -33,6 +40,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
   --known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
   --known-validator FSVdqBzx5D4UsqBLnvmH5dFx2dCm1pTPAbQWJ1PYzTJ2 \
+  --expected-genesis-hash $EXPECTED_GENESIS_HASH \
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
@@ -48,9 +56,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --no-port-check \
   --no-poh-speed-test \
   --skip-poh-verify  \
-  --wait-for-supermajority 131973970 \
-  --expected-shred-version 3247 \
-  --expected-bank-hash DYR7fU4vw1Wk2FUwAgbnFFxwYE4ZcNx6W796ky2ayNHU \
   --no-check-vote-account
 
 [Install]
