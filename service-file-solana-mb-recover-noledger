@@ -26,20 +26,18 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
   --identity /root/solana/validator-keypair.json \
   --vote-account /root/solana/vote-account-keypair.json \
-  --wait-for-supermajority 131973970 \
-  --expected-shred-version 3247 \
-  --expected-bank-hash DYR7fU4vw1Wk2FUwAgbnFFxwYE4ZcNx6W796ky2ayNHU \
-  --known-validator Cogent51kHgGLHr7zpkpRjGYFXM57LgjHjDdqXd4ypdA \
-  --known-validator 12ashmTiFStQ8RGUpi1BTCinJakVyDKWjRL6SWhnbxbT \
-  --known-validator 1aine15iEqZxYySNwcHtQFt4Sgc75cbEi9wks8YgNCa \
-  --known-validator FXrzBb4KBTiQsVdSprYtKE4nZUvQWc7rgG5Z2BF9mUXd \
+  --wait-for-supermajority 135986379 \
+  --expected-shred-version 51382 \
+  --expected-bank-hash DfRg2DQzWVQjRTBSXwTaYgHDPZbQ85ebLrfayJmMENtp \
+  --known-validator PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb \
   --known-validator SerGoB2ZUyi9A1uBFTRpGxxaaMtrFwbwBpRytHefSWZ \
-  --known-validator 2kVZVTY8FMRZ3WuHzyqNz8qd4Ytbba9f9DaesUm5WLvR \
-  --known-validator Cu9Ls6dsTL6cxFHZdStHwVSh1uy2ynXz8qPJMS5FRq86 \
-  --known-validator CMPSSdrTnRQBiBGTyFpdCc3VMNuLWYWaSkE8Zh5z6gbd \
-  --known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
-  --known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
-  --known-validator FSVdqBzx5D4UsqBLnvmH5dFx2dCm1pTPAbQWJ1PYzTJ2 \
+  --known-validator FLVgaCPvSGFguumN9ao188izB4K4rxSWzkHneQMtkwQJ \
+  --known-validator qZMH9GWnnBkx7aM1h98iKSv2Lz5N78nwNSocAxDQrbP \
+  --known-validator GiYSnFRrXrmkJMC54A1j3K4xT6ZMfx1NSThEe5X2WpDe \
+  --known-validator LA1NEzryoih6CQW3gwQqJQffK2mKgnXcjSQZSRpM3wc \
+  --known-validator Certusm1sa411sMpV9FPqU5dXAYhmmhygvxJ23S6hJ24 \
+  --known-validator 9bkyxgYxRrysC1ijd6iByp9idn112CnYTw243fdH2Uvr \
+  --known-validator 12ashmTiFStQ8RGUpi1BTCinJakVyDKWjRL6SWhnbxbT \
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
@@ -50,8 +48,13 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --ledger /root/solana/validator-ledger \
   --limit-ledger-size 50000000 \
   --wal-recovery-mode skip_any_corrupted_record \
-  --maximum-local-snapshot-age 5000 \
-  --snapshot-interval-slots 2000 \
+  --limit-ledger-size 50000000 \
+  --incremental-snapshots \
+  --full-snapshot-interval-slots 25000 \
+  --incremental-snapshot-interval-slots 1000 \
+  --maximum-full-snapshots-to-retain 2 \
+  --maximum-incremental-snapshots-to-retain 4 \
+  --maximum-local-snapshot-age 2000 \
   --no-port-check \
   --no-poh-speed-test \
   --skip-poh-verify  \
