@@ -64,8 +64,3 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
 
 [Install]
 WantedBy=multi-user.target
-
-
-
-
-
