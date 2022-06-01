@@ -48,7 +48,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --ledger /root/solana/validator-ledger \
   --limit-ledger-size 50000000 \
   --wal-recovery-mode skip_any_corrupted_record \
-  --limit-ledger-size 50000000 \
   --incremental-snapshots \
   --full-snapshot-interval-slots 25000 \
   --incremental-snapshot-interval-slots 1000 \
