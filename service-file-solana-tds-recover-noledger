@@ -35,17 +35,13 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --private-rpc \
   --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
   --wait-for-supermajority 130461975 \
-  --expected-bank-hash EpPRJFjY11rds94kDoivi86sEW3sUiSLbSaSZdRqRsBz \
-  --expected-shred-version 33548 \
+  --expected-bank-hash 4NstanApNPjCAd2HwBhHokqCQbJfCAYgp92VvJibSM5M \
+  --expected-shred-version 24371 \
   --entrypoint 5.9.35.85:8001 \
   --entrypoint entrypoint.testnet.solana.com:8001 \
   --entrypoint entrypoint2.testnet.solana.com:8001 \
   --entrypoint entrypoint3.testnet.solana.com:8001 \
   --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
-  --known-validator 82k4RGZAJxtXvW3hzgmHB2q4oDHzgwMR2cGXup324gsJ \
-  --known-validator Bszp6hDL19ymPZ8efp9venQYb4ae2rRmEtVp4aG6k8nx \
-  --known-validator 376e8QLx9qSkjFn7mK2kp3wBwvziKuMqiB3iAbK5Payx \
-  --known-validator 8Apz17FY7vts5PUEP28apzqQBVgg6McbetFJqb45ew8F \
   --accounts /root/solana/validator-ledger/accounts \
   --no-poh-speed-test \
   --log -
