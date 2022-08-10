@@ -42,6 +42,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --entrypoint entrypoint2.testnet.solana.com:8001 \
   --entrypoint entrypoint3.testnet.solana.com:8001 \
   --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
+  --known-validator 4ZtE2XX6oQThPpdjwKXVMphTTZctbWwYxmcCV6xR11RT \
   --accounts /root/solana/validator-ledger/accounts \
   --no-poh-speed-test \
   --log -
