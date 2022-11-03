@@ -10,12 +10,8 @@ RestartSec=1
 User=root
 LimitNOFILE=1024000
 Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password""
-Environment="EXPECTED_SHRED_VERSION=13490"
-Environment="EXPECTED_BANK_HASH=Fi4p8z3AkfsuGXZzQ4TD28N8QDNSWC7ccqAqTs2GPdPu"
 Environment="EXPECTED_GENESIS_HASH=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
-Environment="WAIT_FOR_SUPERMAJORITY=53180900"
 Environment="RUST_LOG=solana=info"
-Environment="ENTRYPOINT=mainnet-beta.solana.com:8001"
 
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
   --dynamic-port-range 8001-8020 \
@@ -26,18 +22,18 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
   --identity /root/solana/validator-keypair.json \
   --vote-account /root/solana/vote-account-keypair.json \
-  --wait-for-supermajority 135986379 \
-  --expected-shred-version 51382 \
-  --expected-bank-hash DfRg2DQzWVQjRTBSXwTaYgHDPZbQ85ebLrfayJmMENtp \
-  --known-validator PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb \
-  --known-validator SerGoB2ZUyi9A1uBFTRpGxxaaMtrFwbwBpRytHefSWZ \
-  --known-validator FLVgaCPvSGFguumN9ao188izB4K4rxSWzkHneQMtkwQJ \
-  --known-validator qZMH9GWnnBkx7aM1h98iKSv2Lz5N78nwNSocAxDQrbP \
-  --known-validator GiYSnFRrXrmkJMC54A1j3K4xT6ZMfx1NSThEe5X2WpDe \
-  --known-validator LA1NEzryoih6CQW3gwQqJQffK2mKgnXcjSQZSRpM3wc \
-  --known-validator Certusm1sa411sMpV9FPqU5dXAYhmmhygvxJ23S6hJ24 \
-  --known-validator 9bkyxgYxRrysC1ijd6iByp9idn112CnYTw243fdH2Uvr \
-  --known-validator 12ashmTiFStQ8RGUpi1BTCinJakVyDKWjRL6SWhnbxbT \
+  --wait-for-supermajority 160991176 \
+  --expected-shred-version 8135 \
+  --entrypoint entrypoint.testnet.solana.sergo.dev:8001 \
+  --entrypoint entrypoint.testnet.solana.com:8001 \
+  --entrypoint entrypoint2.testnet.solana.com:8001 \
+  --entrypoint entrypoint3.testnet.solana.com:8001 \
+  --expected-bank-hash 8EuZtx8JvEjtjByCYxxdpSsDu23WhYqN5LVrSRUurKLA \
+  --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
+  --known-validator 141vSYKGRPNGieSrGJy8EeDVBcbjSr6aWkimNgrNZ6xN \
+  --known-validator FnpP7TK6F2hZFVnqSUJagZefwRJ4fmnb1StS1NokpLZM \
+  --known-validator BFquPCAYdjN9QyLVfuGrQdJTF9Ct7Z85FDxhFeLcpFqR \
+  --known-validator AJLWyfaLmio6Gm8GA76mdfUtuLT4tmyZsLhbpXsndNab \
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
@@ -57,6 +53,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --no-port-check \
   --no-poh-speed-test \
   --skip-poh-verify  \
+  --no-snapshot-fetch \
   --no-check-vote-account
 
 [Install]
