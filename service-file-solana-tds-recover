@@ -34,17 +34,19 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --maximum-local-snapshot-age 2000 \
   --private-rpc \
   --expected-genesis-hash ${EXPECTED_GENESIS_HASH} \
-  --wait-for-supermajority 144871251 \
   --no-snapshot-fetch \
-  --no-genesis-fetch \
-  --expected-bank-hash 4NstanApNPjCAd2HwBhHokqCQbJfCAYgp92VvJibSM5M \
-  --expected-shred-version 24371 \
-  --entrypoint 5.9.35.85:8001 \
+  --wait-for-supermajority 160991176 \
+  --expected-shred-version 8135 \
+  --entrypoint entrypoint.testnet.solana.sergo.dev:8001 \
   --entrypoint entrypoint.testnet.solana.com:8001 \
   --entrypoint entrypoint2.testnet.solana.com:8001 \
   --entrypoint entrypoint3.testnet.solana.com:8001 \
+  --expected-bank-hash 8EuZtx8JvEjtjByCYxxdpSsDu23WhYqN5LVrSRUurKLA \
   --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
-  --known-validator 4ZtE2XX6oQThPpdjwKXVMphTTZctbWwYxmcCV6xR11RT \
+  --known-validator 141vSYKGRPNGieSrGJy8EeDVBcbjSr6aWkimNgrNZ6xN \
+  --known-validator FnpP7TK6F2hZFVnqSUJagZefwRJ4fmnb1StS1NokpLZM \
+  --known-validator BFquPCAYdjN9QyLVfuGrQdJTF9Ct7Z85FDxhFeLcpFqR \
+  --known-validator AJLWyfaLmio6Gm8GA76mdfUtuLT4tmyZsLhbpXsndNab \
   --accounts /root/solana/validator-ledger/accounts \
   --no-poh-speed-test \
   --log -
