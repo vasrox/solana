@@ -15,8 +15,6 @@ LimitNOFILE=2048000
 
 Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea""
 Environment="RUST_LOG=solana=info"
-Environment="EXPECTED_SHRED_VERSION=24371"
-
 
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
   --ledger /root/solana/validator-ledger \
@@ -31,7 +29,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --no-untrusted-rpc \
   --rpc-bind-address 127.0.0.1 \
   --limit-ledger-size 50000000 \
-  --incremental-snapshots \
   --full-snapshot-interval-slots 25000 \
   --incremental-snapshot-interval-slots 1000 \
   --maximum-full-snapshots-to-retain 2 \
