@@ -23,6 +23,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --identity /root/solana/validator-keypair.json \
   --vote-account /root/solana/vote-account-keypair.json \
   --disable-accounts-disk-index \
+  --expected-genesis-hash $EXPECTED_GENESIS_HASH \
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
@@ -41,7 +42,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --maximum-local-snapshot-age 2000 \
   --no-port-check \
   --no-poh-speed-test \
-  --skip-poh-verify
   --wait-for-supermajority 179526408 \
   --expected-shred-version 12743 \
   --expected-bank-hash JCfD7vqjQWKV8Vusx7degWczh55WkQ2cEifGTzCkXdKk \
@@ -51,8 +51,8 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --known-validator GwHH8ciFhR8vejWCqmg8FWZUCNtubPY2esALvy5tBvji \
   --known-validator Ninja1spj6n9t5hVYgF3PdnYz2PLnkt7rvaw3firmjs \
   --known-validator PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb \
-  --known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ
-
+  --known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
+  --skip-poh-verify
 
 [Install]
 WantedBy=multi-user.target
