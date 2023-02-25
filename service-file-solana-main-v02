@@ -35,6 +35,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
+  --disable-accounts-disk-index \
   --private-rpc \
   --full-rpc-api \
   --no-untrusted-rpc \
