@@ -51,7 +51,9 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --maximum-local-snapshot-age 2000 \
   --no-port-check \
   --no-poh-speed-test \
-  --skip-poh-verify
+  --skip-poh-verify \  
+  --no-snapshot-fetch \
+  --no-genesis-fetch
 
 [Install]
 WantedBy=multi-user.target
