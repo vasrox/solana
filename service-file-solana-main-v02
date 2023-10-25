@@ -10,7 +10,6 @@ RestartSec=1
 User=root
 LimitNOFILE=1000000
 Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password""
-Environment="EXPECTED_GENESIS_HASH=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
 Environment="RUST_LOG=solana=info"
 
 ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
@@ -22,27 +21,18 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
   --identity /root/solana/validator-keypair.json \
   --vote-account /root/solana/vote-account-keypair.json \
-  --known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
-  --known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
-  --known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
-  --known-validator C1ocKDYMCm2ooWptMMnpd5VEB2Nx4UMJgRuYofysyzcA \
-  --known-validator GwHH8ciFhR8vejWCqmg8FWZUCNtubPY2esALvy5tBvji \
-  --known-validator 6WgdYhhGE53WrZ7ywJA15hBVkw7CRbQ8yDBBTwmBtAHN \
   --known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
-  --known-validator ba1cUvbuGe7k2Um2YKmRnR7ZAy3sK9mQKJkMCGVhcov \
-  --known-validator ba2eZEU27TqR1MB9WUPJ2F7dcTrNsgdx38tBg53GexZ \
-  --known-validator ba3zMkMp87HZg27Z7EDEkxE48zcKgJ59weFYtrKadY7 \
-  --known-validator ba4MuwPdsx6DKXY6vVCbheAi5UTiMgmBefCGbVhfeQY \
-  --known-validator ba5rfuZ37gxhrLcsgA5fzCg8BvSQcTERPqY14Qffa3J \
-  --expected-genesis-hash $EXPECTED_GENESIS_HASH \
+  --known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
+  --known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
+  --known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
+  --expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
   --disable-accounts-disk-index \
   --private-rpc \
   --full-rpc-api \
-  --no-untrusted-rpc \
-  --rpc-bind-address 127.0.0.1 \
+  --only-known-rpc \
   --ledger /root/solana/validator-ledger \
   --wal-recovery-mode skip_any_corrupted_record \
   --limit-ledger-size 50000000 \
@@ -54,9 +44,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --maximum-local-snapshot-age 5000 \
   --no-port-check \
   --no-poh-speed-test \
-  --skip-poh-verify  \
-  --no-snapshot-fetch \
-  --no-genesis-fetch
+  --skip-poh-verify
 
 [Install]
 WantedBy=multi-user.target
