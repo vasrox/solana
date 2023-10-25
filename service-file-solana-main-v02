@@ -44,6 +44,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --maximum-local-snapshot-age 5000 \
   --no-port-check \
   --no-poh-speed-test \
+  --no-skip-initial-accounts-db-clean \
   --skip-poh-verify
 
 [Install]
