@@ -26,27 +26,27 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --log - \
   --disable-accounts-disk-index \
   --private-rpc \
+  --only-known-rpc \
   --full-rpc-api \
-  --no-untrusted-rpc \
-  --rpc-bind-address 127.0.0.1 \
   --limit-ledger-size 50000000 \
   --full-snapshot-interval-slots 25000 \
-  --incremental-snapshot-interval-slots 2500 \
+  --incremental-snapshot-interval-slots 5000 \
   --maximum-full-snapshots-to-retain 2 \
   --maximum-incremental-snapshots-to-retain 4 \
-  --maximum-local-snapshot-age 2000 \
-  --entrypoint entrypoint.testnet.solana.sergo.dev:8001 \
+  --maximum-local-snapshot-age 5000 \
   --entrypoint entrypoint.testnet.solana.com:8001 \
   --entrypoint entrypoint2.testnet.solana.com:8001 \
   --entrypoint entrypoint3.testnet.solana.com:8001 \
-  --wait-for-supermajority 199641374 \
   --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
-  --expected-bank-hash 7qKeiLLRxvxkD2hZx1Ai1RABKMg7x2n4GVJFcrEh3js2 \
-  --expected-shred-version 28353 \
-  --entrypoint entrypoint.testnet.solana.sergo.dev:8001 \
+  --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
+  --known-validator dDzy5SR3AXdYWVqbDEkVFdvSPCtS9ihF5kJkHCtXoFs \
+  --known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \
   --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
-  --no-snapshot-fetch \
-  --no-genesis-fetch
-
+  --known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
+  --wal-recovery-mode skip_any_corrupted_record \
+  --wait-for-supermajority 237692256 \
+  --expected-shred-version 5106 \
+  --expected-bank-hash 5F6SxymLj1v88JcupVgSHwiCBvtsu8ekA82E1ntaCPqh 
+  
 [Install]
 WantedBy=multi-user.target
