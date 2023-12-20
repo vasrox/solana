@@ -45,6 +45,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --no-port-check \
   --no-poh-speed-test \
   --no-skip-initial-accounts-db-clean \
+  --accounts-hash-interval-slots 1000 \
   --skip-poh-verify
 
 [Install]
