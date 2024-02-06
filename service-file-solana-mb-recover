@@ -22,17 +22,11 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
   --identity /root/solana/validator-keypair.json \
   --vote-account /root/solana/vote-account-keypair.json \
-  --wait-for-supermajority 153139220 \
-  --expected-bank-hash 4kL82HMacFEPTpvwBhNpFTmw2GeSCvvDn3xPi7Whdntc \
-  --expected-shred-version 11762 \
-  --known-validator PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb \
-  --known-validator Ninja1spj6n9t5hVYgF3PdnYz2PLnkt7rvaw3firmjs \
-  --known-validator CXPeim1wQMkcTvEHx9QdhgKREYYJD8bnaCCqPRwJ1to1 \
-  --known-validator A4hyMd3FyvUJSRafDUSwtLLaQcxRP4r1BRC9w2AJ1to2 \
-  --known-validator 23U4mgK9DMCxsv2StC4y2qAptP25Xv5b2cybKCeJ1to3 \
-  --known-validator Ei8VLKR3chZAhJzWwj8PopeuedpQiths2ovVCQ2BCvK7 \
-  --known-validator DiGifdKABxzru2KsjN3YkZZmWP9mVMYK8HWadjtPtJit \
-  --known-validator 9FXD1NXrK6xFU8i4gLAgjj2iMEWTqJhSuQN8tQuDfm2e \
+  --known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
+  --known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
+  --known-validator DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ \
+  --known-validator CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S \
+  --expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
@@ -52,9 +46,12 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --no-port-check \
   --no-poh-speed-test \
   --skip-poh-verify  \
-  --no-check-vote-account
+  --no-check-vote-account \
+  --wait-for-supermajority 246464040 \
   --no-snapshot-fetch \
-  --no-genesis-fetch 
+  --no-genesis-fetch \
+  --expected-bank-hash 2QEvYhBgeWPJbC84fMTTK9NgntqiUAWiBEBf21rtTmng \
+  --expected-shred-version 50093
 
 [Install]
 WantedBy=multi-user.target
