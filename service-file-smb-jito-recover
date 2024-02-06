@@ -23,7 +23,6 @@ ExecStart=/root/.local/share/solana/install/releases/v1.17.20-jito/bin/solana-va
   --relayer-url $RELAYER_URL \
   --block-engine-url $BLOCK_ENGINE_URL \
   --shred-receiver-address $SHRED_RECEIVER_ADDR \
-  --expected-shred-version 56177 \
   --dynamic-port-range 8001-8020 \
   --entrypoint entrypoint.mainnet-beta.solana.com:8001 \
   --entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
