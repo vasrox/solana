@@ -15,7 +15,7 @@ Environment="RELAYER_URL=http://amsterdam.mainnet.relayer.jito.wtf:8100"
 Environment="SHRED_RECEIVER_ADDR=74.118.140.240:1002"
 Environment="RUST_LOG=solana=info"
 
-ExecStart=/root/.local/share/solana/install/releases/v1.17.26-jito/bin/solana-validator \
+ExecStart=/root/.local/share/solana/install/releases/v1.17.27-jito/bin/solana-validator \
   --tip-payment-program-pubkey T1pyyaTNZsKv2WcRAB8oVnk93mLJw2XzjtVYqCsaHqt \
   --tip-distribution-program-pubkey 4R3gSG8BpU4t19KYj8CfnbtRpnT8gtk4dvTHxVRwc2r7 \
   --merkle-root-upload-authority GZctHpWXmsZC1YHACTGGcHhYxjdRqQvTpYkb9LMvxDib \
