@@ -30,7 +30,8 @@ ExecStart=/root/.local/share/solana/install/releases/v1.17.28-jito/bin/solana-va
   --entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
   --entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
   --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
-  --identity /root/solana/validator-keypair.json \
+  --identity /root/solana/identity.json \
+  --authorized-voter /root/solana/validator-keypair.json \
   --vote-account /root/solana/vote-account-keypair.json \
   --known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
   --known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
