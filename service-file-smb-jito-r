@@ -22,6 +22,8 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --commission-bps 10000 \
   --relayer-url $RELAYER_URL \
   --block-engine-url $BLOCK_ENGINE_URL \
+  --account-index program-id \
+  --account-index-include-key AddressLookupTab1e1111111111111111111111111 \
   --shred-receiver-address $SHRED_RECEIVER_ADDR \
   --expected-shred-version 50093 \
   --dynamic-port-range 8001-8020 \
