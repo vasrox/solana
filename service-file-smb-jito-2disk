@@ -45,7 +45,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --private-rpc \
   --full-rpc-api \
   --only-known-rpc \
-  --ledger /mant/disk1 \
+  --ledger /mnt/disk1 \
   --accounts /mnt/disk2 \
   --wal-recovery-mode skip_any_corrupted_record \
   --limit-ledger-size 50000000 \
