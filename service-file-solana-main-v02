@@ -19,7 +19,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
   --entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
   --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
-  --identity /root/solana/validator-keypair.json \
+  --identity /root/solana/identity.json \
   --vote-account /root/solana/vote-account-keypair.json \
   --known-validator 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2 \
   --known-validator GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ \
@@ -44,7 +44,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --maximum-local-snapshot-age 5000 \
   --no-port-check \
   --no-poh-speed-test \
-  --no-skip-initial-accounts-db-clean \
   --accounts-hash-interval-slots 5000 \
   --use-snapshot-archives-at-startup when-newest \
   --skip-poh-verify
