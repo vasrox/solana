@@ -45,11 +45,10 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --private-rpc \
   --full-rpc-api \
   --only-known-rpc \
---ledger /mnt/disk1/ledger \
+--ledger /mnt/disk1 \
 --accounts /mnt/ramdisk/accounts \
 --accounts-hash-cache-path /mnt/ramdisk/accounts_hash_cache \
 --accounts-hash-interval-slots 1000 \
---accounts-index-path /mnt/ramdisk/accounts_index \
 --incremental-snapshot-archive-path /mnt/ramdisk/incremental_snapshots \
 --snapshots /mnt/disk2/snapshots \
   --wal-recovery-mode skip_any_corrupted_record \
