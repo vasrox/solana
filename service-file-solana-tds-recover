@@ -44,9 +44,9 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/agave-validator \
   --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
   --known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
   --wal-recovery-mode skip_any_corrupted_record \
---wait-for-supermajority 289624982 \
---expected-shred-version 4084 \
---expected-bank-hash EXknCC4rNBR5SyBVrUgUB3FaoGbujPMoraEjG7C49Bdk \
+--wait-for-supermajority 296876256 \
+--expected-shred-version 33276 \
+--expected-bank-hash 8iBfq1ezm8FDFFMB58rSMPHZ9sovYEE5vqFXmeaAetN \
   --no-snapshot-fetch
   
 [Install]
