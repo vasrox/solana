@@ -15,7 +15,7 @@ Environment="RELAYER_URL=http://amsterdam.mainnet.relayer.jito.wtf:8100"
 Environment="SHRED_RECEIVER_ADDR=74.118.140.240:1002"
 Environment="RUST_LOG=solana=info"
 
-ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator \
+ExecStart=/root/.local/share/solana/install/active_release/bin/agave-validator \
   --tip-payment-program-pubkey T1pyyaTNZsKv2WcRAB8oVnk93mLJw2XzjtVYqCsaHqt \
   --tip-distribution-program-pubkey 4R3gSG8BpU4t19KYj8CfnbtRpnT8gtk4dvTHxVRwc2r7 \
   --merkle-root-upload-authority GZctHpWXmsZC1YHACTGGcHhYxjdRqQvTpYkb9LMvxDib \
@@ -51,7 +51,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/solana-validator 
   --wal-recovery-mode skip_any_corrupted_record \
   --limit-ledger-size 50000000 \
   --incremental-snapshots \
-  --full-snapshot-interval-slots 50000 \
+  --full-snapshot-interval-slots 25000 \
   --incremental-snapshot-interval-slots 5000 \
   --maximum-full-snapshots-to-retain 1 \
   --maximum-incremental-snapshots-to-retain 1 \
