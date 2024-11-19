@@ -46,15 +46,17 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/agave-validator \
   --full-rpc-api \
   --only-known-rpc \
 --ledger /mnt/disk1 \
---accounts /mnt/ramdisk/accounts \
+--accounts /mnt/disk2/accounts \
 --accounts-hash-cache-path /mnt/ramdisk/accounts_hash_cache \
---accounts-hash-interval-slots 1000 \
+--accounts-index-path /mnt/ramdisk/accounts-index-path \
 --incremental-snapshot-archive-path /mnt/ramdisk/incremental_snapshots \
---snapshots /mnt/disk2/snapshots \
+--snapshots /snapshots \
+--use-snapshot-archives-at-startup when-newest \
+--snapshot-compression lz4 \
   --wal-recovery-mode skip_any_corrupted_record \
   --limit-ledger-size 50000000 \
   --full-snapshot-interval-slots 25000 \
-  --incremental-snapshot-interval-slots 5000 \
+  --incremental-snapshot-interval-slots 1000 \
   --maximum-full-snapshots-to-retain 1 \
   --maximum-incremental-snapshots-to-retain 1 \
   --no-port-check \
