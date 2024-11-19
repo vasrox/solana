@@ -51,7 +51,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/agave-validator \
 --accounts-index-path /mnt/ramdisk/accounts-index-path \
 --incremental-snapshot-archive-path /mnt/ramdisk/incremental_snapshots \
 --snapshots /snapshots \
---use-snapshot-archives-at-startup when-newest \
 --snapshot-compression lz4 \
   --wal-recovery-mode skip_any_corrupted_record \
   --limit-ledger-size 50000000 \
