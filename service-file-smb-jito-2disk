@@ -48,6 +48,8 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/agave-validator \
   --ledger /mnt/disk1 \
   --accounts /mnt/disk2 \
   --snapshots /snapshots \
+  --snapshot-compression lz4 \
+  --block-verification-method unified-scheduler \
   --wal-recovery-mode skip_any_corrupted_record \
   --limit-ledger-size 50000000 \
   --full-snapshot-interval-slots 25000 \
