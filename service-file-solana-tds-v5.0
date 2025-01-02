@@ -22,15 +22,14 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/agave-validator \
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
-  --disable-accounts-disk-index \
   --private-rpc \
   --only-known-rpc \
   --full-rpc-api \
   --limit-ledger-size 50000000 \
   --full-snapshot-interval-slots 25000 \
   --incremental-snapshot-interval-slots 5000 \
-  --maximum-full-snapshots-to-retain 2 \
-  --maximum-incremental-snapshots-to-retain 4 \
+  --maximum-full-snapshots-to-retain 1 \
+  --maximum-incremental-snapshots-to-retain 1 \
   --maximum-local-snapshot-age 5000 \
   --entrypoint entrypoint.testnet.solana.com:8001 \
   --entrypoint entrypoint2.testnet.solana.com:8001 \
