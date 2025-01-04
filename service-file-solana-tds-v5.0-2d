@@ -1,0 +1,51 @@
+[Unit]
+Description=Solana TdS node
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+LimitNOFILE=2048000
+
+Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea""
+Environment="RUST_LOG=solana=info"
+
+ExecStart=/root/.local/share/solana/install/active_release/bin/agave-validator \
+  --ledger /mnt/disk1 \
+  --accounts /mnt/disk2 \
+  --snapshots /snapshots \
+  --snapshot-compression lz4 \
+  --block-verification-method unified-scheduler \
+  --dynamic-port-range 8001-8020 \
+  --identity /root/solana/identity.json \
+  --authorized-voter /root/solana/validator-keypair.json \
+  --vote-account /root/solana/vote-account-keypair.json \
+  --gossip-port 8001 \
+  --rpc-port 8899 \
+  --log - \
+  --private-rpc \
+  --only-known-rpc \
+  --full-rpc-api \
+  --limit-ledger-size 50000000 \
+  --full-snapshot-interval-slots 25000 \
+  --incremental-snapshot-interval-slots 5000 \
+  --maximum-full-snapshots-to-retain 1 \
+  --maximum-incremental-snapshots-to-retain 1 \
+  --maximum-local-snapshot-age 5000 \
+  --entrypoint entrypoint.testnet.solana.com:8001 \
+  --entrypoint entrypoint2.testnet.solana.com:8001 \
+  --entrypoint entrypoint3.testnet.solana.com:8001 \
+  --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
+  --known-validator 5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on \
+  --known-validator dDzy5SR3AXdYWVqbDEkVFdvSPCtS9ihF5kJkHCtXoFs \
+  --known-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \
+  --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
+  --known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
+  --use-snapshot-archives-at-startup when-newest \
+  --wal-recovery-mode skip_any_corrupted_record
+  
+[Install]
+WantedBy=multi-user.target
