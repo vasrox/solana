@@ -24,7 +24,6 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/agave-validator \
   --gossip-port 8001 \
   --rpc-port 8899 \
   --log - \
-  --disable-accounts-disk-index \
   --private-rpc \
   --only-known-rpc \
   --full-rpc-api \
@@ -44,6 +43,7 @@ ExecStart=/root/.local/share/solana/install/active_release/bin/agave-validator \
   --known-validator eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ \
   --known-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
   --wal-recovery-mode skip_any_corrupted_record \
+  --use-snapshot-archives-at-startup when-newest \
 --wait-for-supermajority 312256121 \
 --expected-shred-version 64475 \
 --expected-bank-hash 6A7U1X8WqnWRXWtqaxF15sSYHLT66j1ycBEyFigGwr2Z \
