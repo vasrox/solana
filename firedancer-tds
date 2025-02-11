@@ -6,7 +6,7 @@ dynamic_port_range = "8900-9000"
     path = "-"
 
 [ledger]
-    path = "/root/solana/validator-ledger"
+    path = "/solana/validator-ledger"
     limit_size = 50_000_000
 
 [gossip]
@@ -23,8 +23,8 @@ dynamic_port_range = "8900-9000"
     bank_tile_count = 1
 
 [consensus]
-    identity_path = "/root/solana/identity.json"
-    vote_account_path = "/root/solana/vote-account-keypair.json"
+    identity_path = "/solana/identity.json"
+    vote_account_path = "/solana/vote-account-keypair.json"
     expected_genesis_hash = "4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
     known_validators = [
         "5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on",
