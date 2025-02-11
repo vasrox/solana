@@ -3,11 +3,10 @@ user = "root"
 dynamic_port_range = "8900-9000"
 
 [log]
-    path = "/home/firedancer/solana/validatorFD.log"
+    path = "-"
 
 [ledger]
-    path = "/home/firedancer/solana/ledger"
-    accounts_path = "/mnt/disk1/solana/accounts"
+    path = "/root/solana/validator-ledger"
     limit_size = 50_000_000
 
 [gossip]
@@ -19,13 +18,13 @@ dynamic_port_range = "8900-9000"
 
 [layout]
     affinity = "auto"
-     agave_affinity = "auto"
-     verify_tile_count = 1
-     bank_tile_count = 1
+    agave_affinity = "auto"
+    verify_tile_count = 1
+    bank_tile_count = 1
 
 [consensus]
-    identity_path = "/home/firedancer/solana/validator-keypair.json"
-    vote_account_path = "/home/firedancer/solana/vote-account-keypair.json"
+    identity_path = "/root/solana/identity.json"
+    vote_account_path = "/root/solana/vote-account-keypair.json "
 
     expected_genesis_hash = "4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
     known_validators = [
@@ -35,8 +34,6 @@ dynamic_port_range = "8900-9000"
         "eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ",
         "9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv",
     ]
-    snapshot_fetch = false
-    genesis_fetch = false
 
 [rpc]
     port = 8899
@@ -49,7 +46,6 @@ dynamic_port_range = "8900-9000"
 
 [snapshots]
     full_snapshot_interval_slots = 25000
-    incremental_snapshot_interval_slots = 6250
+    incremental_snapshot_interval_slots = 5000
     maximum_full_snapshots_to_retain = 1
     maximum_incremental_snapshots_to_retain = 1
-    path = "/home/firedancer/solana/snapshots"
