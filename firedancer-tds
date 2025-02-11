@@ -1,5 +1,5 @@
 name = "fd1"
-user = "root"
+user = "firedancer"
 dynamic_port_range = "8900-9000"
 
 [log]
