@@ -1,0 +1,55 @@
+name = "fd1"
+user = "root"
+dynamic_port_range = "8900-9000"
+
+[log]
+    path = "/home/firedancer/solana/validatorFD.log"
+
+[ledger]
+    path = "/home/firedancer/solana/ledger"
+    accounts_path = "/mnt/disk1/solana/accounts"
+    limit_size = 50_000_000
+
+[gossip]
+    entrypoints = [
+      "entrypoint.testnet.solana.com:8001",
+      "entrypoint2.testnet.solana.com:8001",
+      "entrypoint3.testnet.solana.com:8001",
+    ]
+
+[layout]
+    affinity = "auto"
+     agave_affinity = "auto"
+     verify_tile_count = 1
+     bank_tile_count = 1
+
+[consensus]
+    identity_path = "/home/firedancer/solana/validator-keypair.json"
+    vote_account_path = "/home/firedancer/solana/vote-account-keypair.json"
+
+    expected_genesis_hash = "4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
+    known_validators = [
+        "5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on",
+        "dDzy5SR3AXdYWVqbDEkVFdvSPCtS9ihF5kJkHCtXoFs",
+        "Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN",
+        "eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ",
+        "9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv",
+    ]
+    snapshot_fetch = false
+    genesis_fetch = false
+
+[rpc]
+    port = 8899
+    full_api = true
+    private = true
+    only_known = true
+
+[reporting]
+    solana_metrics_config = "host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
+
+[snapshots]
+    full_snapshot_interval_slots = 25000
+    incremental_snapshot_interval_slots = 6250
+    maximum_full_snapshots_to_retain = 1
+    maximum_incremental_snapshots_to_retain = 1
+    path = "/home/firedancer/solana/snapshots"
