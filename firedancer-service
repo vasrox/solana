@@ -1,0 +1,19 @@
+[Unit]
+Description=Solana testnet node
+After=network.target syslog.target fdctl-hugetlbfs
+StartLimitIntervalSec=0
+
+[Service]
+user=firedancer
+Type=simple
+Restart=always
+RestartSec=1
+LimitNOFILE=2048000
+ExecStart=/bin/bash -c ' \
+  /home/firedancer/firedancer/build/native/gcc/bin/fdctl configure init all --config /solana/config.toml && \
+  /home/firedancer/firedancer/build/native/gcc/bin/fdctl run --config /solana/config.toml'
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
