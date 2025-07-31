@@ -10,8 +10,8 @@ RestartSec=1
 User=root
 LimitNOFILE=1000000
 Environment="SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password""
-Environment="BLOCK_ENGINE_URL=https://frankfurt.mainnet.block-engine.deez.wtf"
-Environment="RELAYER_URL=https://frankfurt.mainnet.block-engine.deez.wtf:8100"
+Environment="BLOCK_ENGINE_URL=https://amsterdam.mainnet.block-engine.jito.wtf"
+Environment="RELAYER_URL=http://amsterdam.mainnet.relayer.jito.wtf:8100"
 Environment="SHRED_RECEIVER_ADDR=74.118.140.240:1002"
 Environment="RUST_LOG=solana=info"
 
